@@ -38,9 +38,7 @@ export const Back = styled.div`
   }
 `
 
-export const Nav = styled.div`
-  padding: 0 0 1em 0;
-`
+export const Nav = styled.div``
 
 export const Button = styled.a`
   margin-left: 10px;
@@ -81,6 +79,10 @@ export const Links = styled.ul`
   font-size: 1.3em;
   a {
     margin: 0 0.5em;
+  }
+
+  div {
+    padding: 0 0 1em 0;
   }
 
   -webkit-animation: fadein 0.3s linear forwards;
