@@ -27,6 +27,7 @@ function Header() {
   })
   const [state, setState] = useState(false)
   const [stateNav, setStateNav] = useState(false)
+  const [find, setfind] = useState('')
 
   const showMenu = () => {
     if (state === false) {
@@ -61,6 +62,12 @@ function Header() {
     }
   }
 
+  const handleSelectChangeAmount = (event) => {
+    setfind(event.target.value)
+
+    console.log(find)
+  }
+
   return (
     <Nav>
       <Container>
@@ -68,18 +75,21 @@ function Header() {
           <TxtDk>Streamhub</TxtDk>
           <TxtMob>SH</TxtMob>
         </a>
-        <Form>
-          <Button onClick={showMenu}>
-            <RiMenu4Fill />
-          </Button>
-        </Form>
+        <Button onClick={showMenu}>
+          <RiMenu4Fill />
+        </Button>
       </Container>
       <Back />
       <Links style={menu}>
         <div style={nav}>
           <a href='/#/movies'>Movies</a>-<a href='/#/tv'>TV Shows</a>
         </div>
-        <Input placeholder='Search a movie or TV show' style={search} />
+        <Form action={`/#/search/${find}`} style={search}>
+          <Input
+            placeholder='Search a movie or TV show'
+            onChange={handleSelectChangeAmount}
+          />
+        </Form>
         <Search onClick={showInput} style={nav}>
           <GoSearch />
         </Search>

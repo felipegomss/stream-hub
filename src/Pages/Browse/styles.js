@@ -6,6 +6,10 @@ export const Container = styled.div`
   place-items: center;
   background-position: center;
   background-size: auto;
+
+  h3 {
+    width: min-content;
+  }
   @media (min-width: 760px) {
     height: 50vh;
   }
@@ -54,6 +58,7 @@ export const Desciption = styled.div`
   @media (min-width: 760px) {
     display: grid;
     grid-template: 1fr 1fr 1fr 1fr/ 1fr;
+    align-items: center;
   }
 `
 
@@ -61,6 +66,23 @@ export const Poster = styled.div`
   width: fit-content;
   display: flex;
   flex-direction: column;
+`
+
+export const Score = styled.span`
+  display: flex;
+  align-items: center;
+`
+export const Iten = styled.span`
+  background-image: linear-gradient(
+    to right top,
+    #8e2de2,
+    #8023e1,
+    #7119e1,
+    #600de0,
+    #4a00e0
+  );
+  padding: 1em;
+  margin-right: 10px;
 `
 
 export const Go = styled(Button)`

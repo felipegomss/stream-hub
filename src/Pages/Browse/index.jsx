@@ -3,13 +3,23 @@ import { useEffect, useState } from 'react'
 import { RiMovie2Line } from 'react-icons/ri'
 import api from 'Services/api'
 
-import { Container, Poster, Go, Grid, Desciption, Mask } from './styles'
+import {
+  Container,
+  Poster,
+  Go,
+  Grid,
+  Desciption,
+  Mask,
+  Score,
+  Iten
+} from './styles'
 
 function Browse({ match }) {
   const [movie, setMovie] = useState([])
   const [gen, setGen] = useState({
     gen1: '',
-    gen2: ''
+    gen2: '',
+    gen3: ''
   })
 
   useEffect(() => {
@@ -20,15 +30,32 @@ function Browse({ match }) {
         )
         .then((res) => {
           setMovie(res.data)
-          setGen({
-            gen1: res.data.genres[0].name,
-            gen2: res.data.genres[1].name
-          })
+          if (match.params.type !== 'person') {
+            if (res.data.genres.length === 1) {
+              setGen({
+                gen1: res.data.genres[0].name
+              })
+            }
+            if (res.data.genres.length === 2) {
+              setGen({
+                gen1: res.data.genres[0].name + ' -',
+                gen2: res.data.genres[1].name
+              })
+            }
+            if (res.data.genres.length > 2) {
+              setGen({
+                gen1: res.data.genres[0].name + ' -',
+                gen2: res.data.genres[1].name + ' -',
+                gen3: res.data.genres[2].name
+              })
+            }
+          }
         })
-        .catch((e) => alert('Error on search'))
     }
     loadApi()
   }, [])
+
+  console.log(movie)
 
   return (
     <>
@@ -62,11 +89,17 @@ function Browse({ match }) {
                     <RiMovie2Line />
                   </li>
                   <li>{gen.gen1}</li>
-                  <li>-</li>
                   <li>{gen.gen2}</li>
+                  <li>{gen.gen3}</li>
                 </ul>
               </span>
-              <span></span>
+              <Score>
+                <Iten>{movie.vote_average * 10}%</Iten>
+                <span>
+                  <h3>Vote Average</h3>
+                </span>
+                {/* <Score>{movie.popularity}</Score> */}
+              </Score>
               <p>{movie.overview}</p>
             </Desciption>
           </Grid>

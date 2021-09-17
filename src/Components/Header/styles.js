@@ -65,9 +65,7 @@ export const TxtMob = styled.a`
 
 export const Form = styled.form`
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
+  width: 90%;
 `
 
 export const Links = styled.ul`
@@ -104,13 +102,9 @@ export const Search = styled(Button)`
 `
 
 export const Input = styled.input`
+  width: 100%;
   padding: 1em;
   border: 1px solid #6e30f2;
-  width: 60%;
-
-  @media (min-width: 760px) {
-    width: 90%;
-  }
 
   &:focus {
     border: 1px solid #6e30f2 !important;
