@@ -64,16 +64,14 @@ function Header() {
 
   const handleSelectChangeAmount = (event) => {
     setfind(event.target.value)
-
-    console.log(find)
   }
 
   return (
     <Nav>
       <Container>
         <a href='/'>
-          <TxtDk>Streamhub</TxtDk>
-          <TxtMob>SH</TxtMob>
+          <TxtDk>StreamJuice</TxtDk>
+          <TxtMob>StreamJuice</TxtMob>
         </a>
         <Button onClick={showMenu}>
           <RiMenu4Fill />
@@ -82,7 +80,8 @@ function Header() {
       <Back />
       <Links style={menu}>
         <div style={nav}>
-          <a href='/#/movies'>Movies</a>-<a href='/#/tv'>TV Shows</a>
+          <a href='/#/movies'>Movies</a>-<a href='/#/tv'>TV</a>-
+          <a href='/#/trending'>Trending</a>
         </div>
         <Form action={`/#/search/${find}`} style={search}>
           <Input

@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { RiMovie2Line } from 'react-icons/ri'
 import api from 'Services/api'
+import { Loading } from 'Styles/globalStyles'
 
 import {
   Container,
@@ -55,8 +56,6 @@ function Browse({ match }) {
     loadApi()
   }, [])
 
-  console.log(movie)
-
   return (
     <>
       <Container
@@ -105,6 +104,11 @@ function Browse({ match }) {
           </Grid>
         </Mask>
       </Container>
+      {movie.length <= 0 && (
+        <Loading>
+          <h1>CARREGANDO</h1>
+        </Loading>
+      )}
     </>
   )
 }

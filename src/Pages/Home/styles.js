@@ -7,6 +7,7 @@ export const Text = styled.div`
   width: 100%;
   height: 10vh;
   margin-bottom: 8em;
+  text-shadow: 1px 1px 2px black;
 
   h2 {
     display: flex;
@@ -27,6 +28,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   height: 90vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
   @media (max-width: 760px) {
     justify-content: center;
@@ -34,7 +38,7 @@ export const Container = styled.div`
 `
 
 export const Button = styled.a`
-  width: 100px;
+  width: 150px;
   text-align: center;
   padding: 1em;
   background-image: linear-gradient(
@@ -46,4 +50,7 @@ export const Button = styled.a`
     #4a00e0
   );
   letter-spacing: 3px;
+  h3 {
+    font-weight: 300;
+  }
 `

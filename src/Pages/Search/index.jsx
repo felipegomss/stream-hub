@@ -2,6 +2,7 @@
 import Card from 'Components/Card'
 import { useEffect, useState } from 'react'
 import api from 'Services/api'
+import { Loading } from 'Styles/globalStyles'
 
 import { Container, Content } from './styles'
 
@@ -20,7 +21,6 @@ function Search({ match }) {
     loadApi()
   }, [])
 
-  console.log(data)
   return (
     <main>
       <Container>
@@ -29,7 +29,6 @@ function Search({ match }) {
         </h1>
         <Content>
           {data.map((item, index) => {
-            console.log(item)
             return (
               <>
                 {item.media_type !== 'person' && (
@@ -44,6 +43,11 @@ function Search({ match }) {
           })}
         </Content>
       </Container>
+      {data.length <= 0 && (
+        <Loading>
+          <h1>CARREGANDO</h1>
+        </Loading>
+      )}
     </main>
   )
 }

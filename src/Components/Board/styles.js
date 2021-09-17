@@ -35,7 +35,7 @@ export const ArrowL = styled.div`
   left: 0;
   -webkit-overflow-scrolling: touch;
   @media (max-width: 768px) {
-    opacity: 0;
+    opacity: 1;
     background-color: rgba(3, 3, 3, 0);
   }
 `
@@ -56,7 +56,7 @@ export const ArrowR = styled.div`
   right: 0;
   -webkit-overflow-scrolling: touch;
   @media (max-width: 768px) {
-    opacity: 0;
+    opacity: 1;
     background-color: rgba(3, 3, 3, 0);
   }
 `

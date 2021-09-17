@@ -38,7 +38,11 @@ export const Back = styled.div`
   }
 `
 
-export const Nav = styled.div``
+export const Nav = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
 
 export const Button = styled.a`
   margin-left: 10px;
@@ -71,18 +75,14 @@ export const Form = styled.form`
 export const Links = styled.ul`
   display: flex;
   justify-content: center;
-  margin: 1em 0 0 0;
-  padding: 0;
+  align-items: center;
+  height: 90px;
   position: relative;
   font-size: 1.3em;
+  padding: 0;
   a {
     margin: 0 0.5em;
   }
-
-  div {
-    padding: 0 0 1em 0;
-  }
-
   -webkit-animation: fadein 0.3s linear forwards;
   animation: fadein 0.5s linear forwards;
 

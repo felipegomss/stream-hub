@@ -1,11 +1,33 @@
+import { useEffect, useState } from 'react'
 import { AiFillFire, AiOutlineLine } from 'react-icons/ai'
+import API from 'Services/dataTrending'
 
 import { Container, Text, Button } from './styles'
 
 function Home() {
+  const [data, setData] = useState({})
+  const [index, setIndex] = useState(Math.floor(Math.random() * 19))
+
+  useEffect(() => {
+    setIndex(Math.floor(Math.random() * 19))
+    const loadAll = async () => {
+      const list = await API.getTrending()
+      setData(list[0].items.results[index])
+    }
+    loadAll()
+
+    console.log(index)
+  }, [])
+
   return (
-    <main>
-      <Container>
+    <Container
+      style={{
+        backgroundImage: `url(
+        https://image.tmdb.org/t/p/original${data.backdrop_path}
+        )`
+      }}
+    >
+      <main>
         <Text>
           <svg width='0' height='0'>
             <linearGradient
@@ -33,11 +55,11 @@ function Home() {
           </h2>
           <h2>So you came to the right place. </h2>
         </Text>
-        <Button href='/#/trending'>
-          <h3>Start</h3>
-        </Button>
-      </Container>
-    </main>
+      </main>
+      <Button href='/#/trending'>
+        <h3>See trends</h3>
+      </Button>
+    </Container>
   )
 }
 

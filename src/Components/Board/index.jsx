@@ -5,7 +5,7 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri'
 
 import { Container, Content, ArrowL, ArrowR } from './styles'
 
-function Board({ title, items }) {
+function Board({ title, items, type }) {
   const [scroll, setScroll] = useState(0)
   const listRow = 325
   const listRange = 2
@@ -48,6 +48,7 @@ function Board({ title, items }) {
               key={key}
               img={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
               data={item}
+              type={type}
             />
           ))}
       </Content>
